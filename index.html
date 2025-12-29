@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
 <title>Sistema Solar Interativo</title>
 
 <style>
@@ -121,7 +122,7 @@ button {
     to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* planetas */
+/* Planetas */
 .planet-container {
     position: absolute;
     top: 50%;
@@ -141,7 +142,7 @@ button {
     opacity: .85;
 }
 
-/* órbitas */
+/* Órbitas */
 .mercury-orbit { width: 18%; height: 18%; animation-duration: 6s; }
 .venus-orbit   { width: 25%; height: 25%; animation-duration: 9s; }
 .earth-orbit   { width: 33%; height: 33%; animation-duration: 12s; }
@@ -151,7 +152,7 @@ button {
 .uranus-orbit  { width: 77%; height: 77%; animation-duration: 50s; }
 .neptune-orbit { width: 90%; height: 90%; animation-duration: 65s; }
 
-/* planetas */
+/* Planetas */
 .mercury { width: 8px; height: 8px; background: #aaa; }
 .venus { width: 14px; height: 14px; background: #d4a017; }
 .earth { width: 15px; height: 15px; background: radial-gradient(circle,#4facfe,#2ecc71,#1e3799); }
@@ -178,24 +179,25 @@ button {
 
 /* ================= MENININHA ================= */
 .girl {
-    position: absolute;
-    left: 65%;
-    top: 40%;
-    animation: floatGirl 6s ease-in-out infinite;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
+    position: fixed;
+    right: 6%;
+    bottom: 18%;
+    z-index: 30;
+    animation: floatGirl 5s ease-in-out infinite;
     pointer-events: none;
+    filter: drop-shadow(0 0 12px rgba(255,255,255,0.4));
 }
 
 @keyframes floatGirl {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(2deg); }
-    100% { transform: translateY(0) rotate(0deg); }
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
 }
 
 @media (max-width: 600px) {
     .girl {
-        left: 55%;
-        top: 45%;
+        right: 4%;
+        bottom: 22%;
         transform: scale(0.85);
     }
 }
@@ -223,18 +225,10 @@ button {
 
 <body>
 
+<!-- ESTRELAS -->
 <div class="star-layer layer1"></div>
 <div class="star-layer layer2"></div>
 <div class="star-layer layer3"></div>
-
-<div class="controls">
-    <button id="fullscreenBtn">Tela cheia</button>
-</div>
-
-<div class="wrapper">
-<div class="solar-system" id="solar">
-
-<div class="sun"></div>
 
 <!-- MENININHA -->
 <div class="girl">
@@ -252,50 +246,29 @@ button {
 </svg>
 </div>
 
+<div class="controls">
+    <button id="fullscreenBtn">Tela cheia</button>
+</div>
+
+<div class="wrapper">
+<div class="solar-system" id="solar">
+
+<div class="sun"></div>
+
 <!-- PLANETAS -->
-<div class="orbit mercury-orbit">
-<div class="planet-container" data-name="Mercúrio" data-info="Mais próximo do Sol e sem atmosfera.">
-<div class="planet mercury"></div><div class="label">Mercúrio</div>
-</div></div>
-
-<div class="orbit venus-orbit">
-<div class="planet-container" data-name="Vênus" data-info="O planeta mais quente do Sistema Solar.">
-<div class="planet venus"></div><div class="label">Vênus</div>
-</div></div>
-
-<div class="orbit earth-orbit">
-<div class="planet-container" data-name="Terra" data-info="Nosso lar, com água líquida e vida.">
-<div class="planet earth"></div><div class="label">Terra</div>
-</div></div>
-
-<div class="orbit mars-orbit">
-<div class="planet-container" data-name="Marte" data-info="Planeta vermelho com calotas polares.">
-<div class="planet mars"></div><div class="label">Marte</div>
-</div></div>
-
-<div class="orbit jupiter-orbit">
-<div class="planet-container" data-name="Júpiter" data-info="Maior planeta do Sistema Solar.">
-<div class="planet jupiter"></div><div class="label">Júpiter</div>
-</div></div>
-
-<div class="orbit saturn-orbit">
-<div class="planet-container" data-name="Saturno" data-info="Conhecido por seus anéis.">
-<div class="planet saturn"></div><div class="label">Saturno</div>
-</div></div>
-
-<div class="orbit uranus-orbit">
-<div class="planet-container" data-name="Urano" data-info="Gira quase de lado.">
-<div class="planet uranus"></div><div class="label">Urano</div>
-</div></div>
-
-<div class="orbit neptune-orbit">
-<div class="planet-container" data-name="Netuno" data-info="Muito frio e ventos extremos.">
-<div class="planet neptune"></div><div class="label">Netuno</div>
-</div></div>
+<div class="orbit mercury-orbit"><div class="planet-container" data-name="Mercúrio" data-info="Mais próximo do Sol e sem atmosfera."><div class="planet mercury"></div><div class="label">Mercúrio</div></div></div>
+<div class="orbit venus-orbit"><div class="planet-container" data-name="Vênus" data-info="O planeta mais quente do Sistema Solar."><div class="planet venus"></div><div class="label">Vênus</div></div></div>
+<div class="orbit earth-orbit"><div class="planet-container" data-name="Terra" data-info="Nosso lar com água líquida."><div class="planet earth"></div><div class="label">Terra</div></div></div>
+<div class="orbit mars-orbit"><div class="planet-container" data-name="Marte" data-info="Planeta vermelho com calotas polares."><div class="planet mars"></div><div class="label">Marte</div></div></div>
+<div class="orbit jupiter-orbit"><div class="planet-container" data-name="Júpiter" data-info="Maior planeta do Sistema Solar."><div class="planet jupiter"></div><div class="label">Júpiter</div></div></div>
+<div class="orbit saturn-orbit"><div class="planet-container" data-name="Saturno" data-info="Famoso por seus anéis."><div class="planet saturn"></div><div class="label">Saturno</div></div></div>
+<div class="orbit uranus-orbit"><div class="planet-container" data-name="Urano" data-info="Gira quase de lado."><div class="planet uranus"></div><div class="label">Urano</div></div></div>
+<div class="orbit neptune-orbit"><div class="planet-container" data-name="Netuno" data-info="Muito frio e ventos extremos."><div class="planet neptune"></div><div class="label">Netuno</div></div></div>
 
 </div>
 </div>
 
+<!-- MODAL -->
 <div class="info" id="infoBox">
     <div class="info-box">
         <h2 id="infoTitle"></h2>
